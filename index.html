@@ -33,12 +33,14 @@
   .formula ul li:first-child{border-top:0}
   .formula .deliv{margin-top:12px;font-size:14px;color:#A8B8AC;font-weight:700}
   .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-  .day{position:relative;cursor:pointer;background:#101B14;border:1px solid #2A3D31;border-radius:14px;padding:14px 16px}
+  .day{position:relative;cursor:pointer;background:rgba(228,221,210,.90);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(142,125,113,.55);border-radius:14px;padding:12px;color:#2E2620}
   .day:active{transform:scale(.99)}
   .dplus{position:absolute;bottom:10px;inset-inline-end:12px;width:26px;height:26px;border-radius:50%;background:#E8A317;color:#0A0F0C;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;line-height:1}
   .dbadge{position:absolute;top:-7px;inset-inline-end:10px;background:#E8A317;color:#0A0F0C;font-size:11px;font-weight:800;border-radius:99px;padding:1px 7px;border:2px solid #101B14;line-height:1.4}
   .day.wide{grid-column:1/-1}
-  .day h3{color:#F2EFE6;font-size:16.5px;margin-bottom:4px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .day h3{color:#2E2620;font-size:15px;margin:0 0 8px;display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+  .day ul{margin:0;padding-inline-start:18px}
+  .day li{font-size:12px;line-height:1.5;color:#5A4A3C}
   .day .prix{background:#E8A317;color:#0A0F0C;font-size:12.5px;font-weight:800;padding:2px 9px;border-radius:99px;white-space:nowrap}
   .day ul{list-style:none}
   .day li{font-size:14.5px;padding:2.5px 0}
@@ -66,7 +68,7 @@
   .card>.carte-note:last-child{padding-bottom:20px}
   .card>.corp{padding:0 20px}
   .card>.devis{padding:0 20px 20px}
-  .days{display:flex;flex-direction:column;gap:10px;padding:0 20px 20px}
+  .days{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 20px 20px}
   .cta-tile{background:#1F5C3D;color:#fff;text-decoration:none}
   .cta-tile .body{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:200px;width:100%;padding:16px}
   .cta-tile h3{color:#fff;font-size:19px}
@@ -250,7 +252,37 @@
   </div>
 
 
-<div class="card">
+  <div class="card">
+        <h2 class="sec-title"><span data-fr="Menu de la semaine" data-ar="منيو الأسبوع">Menu de la semaine</span></h2>
+    <p class="sec-sub"><span data-fr="Box Déjeuner — un repas complet, gourmand et varié !" data-ar="بوكس الغداء — وجبة كاملة، لذيذة ومتنوعة !">Box Déjeuner — un repas complet, gourmand et varié !</span></p>
+    <p class="carte-note"><span data-fr="Touchez un box pour l’ajouter à la commande." data-ar="اضغط على أي بوكس باش تزيدو للطلب.">Touchez un box pour l’ajouter à la commande.</span></p>
+    <div class="days">
+      <div class="day" data-box="box-dimanche"><h3><span data-fr="Dimanche" data-ar="الأحد">Dimanche</span><span class="prix"><span data-fr="1 000 DA" data-ar="1000 دج">1 000 DA</span></span></h3><ul>
+        <li><span data-fr="Salade de thon" data-ar="سلطة التونة">Salade de thon</span></li>
+        <li><span data-fr="Gratin au poulet" data-ar="غراتان بالدجاج">Gratin au poulet</span></li>
+        <li><span data-fr="Boisson" data-ar="مشروب">Boisson</span></li>
+        <li><span data-fr="Pain" data-ar="خبز">Pain</span></li></ul><span class="dplus">+</span></div>
+      <div class="day" data-box="box-lundi"><h3><span data-fr="Lundi" data-ar="الاثنين">Lundi</span><span class="prix"><span data-fr="1 000 DA" data-ar="1000 دج">1 000 DA</span></span></h3><ul>
+        <li><span data-fr="Salade algérienne" data-ar="سلطة جزائرية">Salade algérienne</span></li>
+        <li><span data-fr="Tajin zitoune" data-ar="طاجين زيتون">Tajin zitoune</span></li>
+        <li><span data-fr="Gâteau au chocolat ou à la vanille, ou Mille-feuilles" data-ar="قاطو بالشوكولاطة أو الفانيليا، أو ميل فاي">Gâteau au chocolat ou à la vanille, ou Mille-feuilles</span></li></ul><span class="dplus">+</span></div>
+      <div class="day" data-box="box-mardi"><h3><span data-fr="Mardi" data-ar="الثلاثاء">Mardi</span><span class="prix"><span data-fr="1 000 DA" data-ar="1000 دج">1 000 DA</span></span></h3><ul>
+        <li><span data-fr="Soupe au poulet" data-ar="شوربة الدجاج">Soupe au poulet</span></li>
+        <li><span data-fr="Chetitha djaj" data-ar="شطيطحة دجاج">Chetitha djaj</span></li>
+        <li><span data-fr="Boisson ou fruits de saison" data-ar="مشروب أو فواكه الموسم">Boisson ou fruits de saison</span></li></ul><span class="dplus">+</span></div>
+      <div class="day" data-box="box-mercredi"><h3><span data-fr="Mercredi" data-ar="الأربعاء">Mercredi</span><span class="prix"><span data-fr="1 000 DA" data-ar="1000 دج">1 000 DA</span></span></h3><ul>
+        <li><span data-fr="Poulet à la crème, légumes et riz" data-ar="دجاج بالكريمة مع الخضرة والأرز">Poulet à la crème, légumes et riz</span></li>
+        <li><span data-fr="Salade algérienne" data-ar="سلطة جزائرية">Salade algérienne</span></li>
+        <li><span data-fr="Boisson" data-ar="مشروب">Boisson</span></li></ul><span class="dplus">+</span></div>
+      <div class="day" data-box="box-jeudi"><h3><span data-fr="Jeudi" data-ar="الخميس">Jeudi</span><span class="prix"><span data-fr="1 000 DA" data-ar="1000 دج">1 000 DA</span></span></h3><ul>
+        <li><span data-fr="Spaghetti bolognaise à la viande hachée locale" data-ar="سباقيتي بولونيز بلحم مفروم محلي">Spaghetti bolognaise à la viande hachée locale</span></li>
+        <li><span data-fr="Salade" data-ar="سلطة">Salade</span></li>
+        <li><span data-fr="Eau + fruits de saison" data-ar="ماء + فواكه الموسم">Eau + fruits de saison</span></li></ul><span class="dplus">+</span></div>
+    </div>
+  </div>
+  <p class="week-note"><span data-fr="Quantités limitées — commandez la veille ou avant 8 h le matin même." data-ar="الكميات محدودة — اطلب من اليوم اللي قبل أو قبل 8 صباحا في نفس اليوم.">Quantités limitées — commandez la veille ou avant 8 h le matin même.</span></p>
+
+  <div class="card">
 <h2 class="sec-title"><span data-fr="La carte" data-ar="المنيو">La carte</span></h2>
 <p class="sec-sub"><span data-fr="Prix affichés ou en message privé." data-ar="السعر مكتوب في المنيو ولا في الخاص.">Prix affichés ou en message privé.</span></p>
     <p class="carte-note"><span data-fr="Touchez un plat pour l’ajouter à la commande." data-ar="اضغط على أي طبق باش تزيدو للطلب.">Touchez un plat pour l’ajouter à la commande.</span></p>
