@@ -729,12 +729,23 @@ function saveDish(){
     var rowId = id || ("d" + Date.now());
     toast(isAr() ? "جارٍ الحفظ…" : "Enregistrement…");
     var finish = function(imgs){
-      var row = {id: rowId, cat:finalCat, fr: fr || ar, ar: ar || fr, ingredients:desc, price:p, img: (imgs[0] || ""), imgs: imgs, sort:sort, active: document.getElementById("addActive").checked};
+      var row = {id: rowId, cat:finalCat, fr: fr || ar, ar: ar || fr, ingredients:desc, price:p, img: (imgs[0] || "LOGO"), imgs: imgs, sort:sort, active: document.getElementById("addActive").checked};
       var cr = ownerCreds() || {};
-      sb.rpc("dn_upsert_dish", {p_project: cr.project, p_code: cr.code, p_dish: row}).then(function(res){
-        if(res.error){ toast("Erreur : " + res.error.message); return; }
+      var afterUpsert = function(){
         closeOvls(); window.dnReload();
         toast(isAr() ? "الطبق تسجّل ✅ — تبدل عند الزبائن أوتوماتيك" : "Plat enregistré ✅ — le menu client se met à jour tout seul");
+      };
+      // v2 applies the gallery exactly as sent (an empty gallery clears the
+      // photos, so the card falls back to the logo); v1 is the fallback.
+      sb.rpc("dn_upsert_dish_v2", {p_project: cr.project, p_code: cr.code, p_dish: row}).then(function(res){
+        if(res.error){
+          sb.rpc("dn_upsert_dish", {p_project: cr.project, p_code: cr.code, p_dish: row}).then(function(r2){
+            if(r2.error){ toast("Erreur : " + r2.error.message); return; }
+            afterUpsert();
+          });
+          return;
+        }
+        afterUpsert();
       });
     };
     // Gallery: kept photos stay as-is, staged new ones upload one by one
