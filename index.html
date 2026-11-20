@@ -157,12 +157,15 @@
   #copyOvl.open .sheet{animation:sheetUp .35s ease both}
   .anim-done #copyOvl.open .sheet{animation:none!important;opacity:1!important;transform:none!important}
   /* «Comment commander ?» card keeps its cream panel with real padding */
-  .order{padding:20px 22px}
+  .order{padding:20px 22px;background:#FFFDF9!important}
   .order ul{margin:6px 0 0}
   .order li{line-height:1.6}
   /* the background photo never stretches bare across the whole page */
   .bg{background-color:#3B2A20}
   .bg::after{content:'';position:absolute;inset:0;background:rgba(251,237,232,.72)}
+  /* page content sits on a solid cream sheet — no photo leaks between cards */
+  .wrap{background:#FBEDE8;box-shadow:0 0 60px rgba(59,42,32,.25);border-radius:24px}
+  footer{color:#6E5F52}
 
 
   /* pro palette: poster cream + deep brown + salmon rose */
